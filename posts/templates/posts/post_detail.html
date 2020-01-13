@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Index page
+    Post {{ post.title }}
 {% endblock %}
 
 {% block content_title %}
-    Index page
+    Post {{ post.title }}
 {% endblock %}
 
 {% block content %}
-    Content
+    <p>
+        {{ post.title }}
+    </p>
+    <p>
+        {{ post.body }}
+    </p>
 {% endblock %}
