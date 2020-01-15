@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Create new tag
+{% endblock %}
+
+{% block content_title %}
+    <h1 class="mt-5 mb-5">
+        New tag
+    </h1>
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-6">
+        <form action="{{ url_for('posts.tag_create') }}" method="post">
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label(class='control-label') }}
+                    {{ field(class='form-control') }}
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-outline-dark">Create</button>
+        </form>
+    </div>
+{% endblock %}

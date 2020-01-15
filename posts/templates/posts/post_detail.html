@@ -5,14 +5,19 @@
 {% endblock %}
 
 {% block content_title %}
-    Post {{ post.title }}
+   <h1>Post "{{ post.title }}"</h1>
 {% endblock %}
 
 {% block content %}
-    <p>
-        {{ post.title }}
-    </p>
-    <p>
+    <div>
+        {% for tag in tags %}
+            <a href="{{ url_for('posts.tag_detail', slug=tag.slug) }}">
+                <span class="badge badge-primary">{{ tag.name }}</span>
+            </a>
+        {% endfor %}
+    </div>
+    <div>
         {{ post.body }}
-    </p>
+    </div>
+    <p><a href="{{ url_for('posts.post_update', slug=post.slug) }}" class="btn btn-outline-dark">Edit post</a></p>
 {% endblock %}
